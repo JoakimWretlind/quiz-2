@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
     QuizSection,
     QuizContainer,
@@ -13,8 +13,6 @@ import {
 } from './Quiz.style';
 
 import { data } from './quizData';
-
-
 
 const Quiz = () => {
     const quizLength = data.length;
@@ -33,33 +31,32 @@ const Quiz = () => {
     };
 
     const nextQuestion = () => {
-        console.log("click")
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < quizLength) {
             setCurrentQuestion(nextQuestion)
         } else {
             setShowScore(true)
         }
-    }
+    };
 
     return (
         <>
-            <QuizSection>
+            <QuizSection >
                 <QuizHeader>Quiz</QuizHeader>
-                <QuizContainer>
+                <QuizContainer >
                     {showScore ?
-                        <ScoreSection>You scored {score} out of {quizLength}</ScoreSection>
+                        <ScoreSection >You scored {score} out of {quizLength}</ScoreSection>
                         :
                         <QuestionSection>
-                            <QuestionCount>
+                            <QuestionCount >
                                 <span>Question {currentQuestion + 1}</span>/{quizLength}
                             </QuestionCount>
-                            <QuestionText>
+                            <QuestionText >
                                 {data[currentQuestion].questions}
                             </QuestionText>
                             <AnswerSection >
                                 {data[currentQuestion].answerOptions.map((answer) =>
-                                    <Button correct={correct} onClick={() => handleButtonClick(answer.isCorrect)}>{answer.answerText}</Button >
+                                    <Button correct={correct} key={answer.answerText} onClick={() => handleButtonClick(answer.isCorrect)}>{answer.answerText}</Button >
                                 )}
                             </AnswerSection>
                         </QuestionSection>
