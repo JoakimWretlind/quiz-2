@@ -1,4 +1,4 @@
-export const data = [
+export const quizData = [
     {
         id: "js001",
         questions: "Which of the following is not JavaScript Data Types?",

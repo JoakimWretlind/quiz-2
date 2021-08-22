@@ -12,8 +12,7 @@ export const QuizSection = styled.section`
 `;
 
 export const QuizContainer = styled.article`
-  height: 100%;
-  min-height: 20vh;
+  height: 100%;  
   width: 80%;
   max-width: 90rem;
   background: radial-gradient(#575449, #7B7A6A);
@@ -86,6 +85,7 @@ export const Button = styled.button`
 `;
 
 export const NextButton = styled.button`
+    display: ${({ showScore }) => (showScore ? "none" : "block")};
     margin-left: 50%;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -116,5 +116,8 @@ export const ScoreSection = styled.div`
   color: #ffffff;
   font-size: 3rem;
   padding: 3rem;
-  letter-spacing: .3rem;  
+  letter-spacing: .3rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
