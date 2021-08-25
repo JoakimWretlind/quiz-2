@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
     QuizSection,
     QuizContainer,
@@ -14,8 +14,12 @@ import {
 
 import { quizData } from './quizData';
 
+const numberOfQuestions = 5;
+quizData.sort(() => 0.5 - Math.random())
+    .slice(-numberOfQuestions)
+
 const Quiz = () => {
-    const quizLength = quizData.length;
+    const quizLength = numberOfQuestions;
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
@@ -42,7 +46,6 @@ const Quiz = () => {
             setShowScore(true);
         }
     };
-
 
     return (
         <>
